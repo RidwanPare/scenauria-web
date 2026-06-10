@@ -4,7 +4,7 @@ const TOKEN_COOKIE = 'scenauria_token';
 
 export async function POST(req: NextRequest) {
   const body = await req.json();
-  const apiUrl = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:3001';
+  const apiUrl = process.env.API_URL ?? process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:3001';
 
   const regRes = await fetch(`${apiUrl}/auth/register`, {
     method: 'POST',

@@ -9,7 +9,7 @@ interface Visit {
 }
 
 async function getPublicVisit(slug: string): Promise<Visit | null> {
-  const apiUrl = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:3001';
+  const apiUrl = process.env.API_URL ?? process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:3001';
   const res = await fetch(`${apiUrl}/v/${slug}`, { cache: 'no-store' });
   if (!res.ok) return null;
   return res.json();

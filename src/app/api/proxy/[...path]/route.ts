@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getServerToken } from '@/lib/auth';
 
-const BASE = () => process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:3001';
+const BASE = () => process.env.API_URL ?? process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:3001';
 
 function apiUrl(path: string[], search: string): string {
   return `${BASE()}/${path.join('/')}${search}`;
