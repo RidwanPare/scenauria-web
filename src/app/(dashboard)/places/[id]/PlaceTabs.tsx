@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation';
 import type { PlaceData } from '@/lib/validations';
 import { useQuery } from '@tanstack/react-query';
 import { Badge } from '@/components/ui/badge';
+import { NewCaptureForm } from '@/components/captures/NewCaptureForm';
 
 interface Place {
   id: string;
@@ -89,6 +90,7 @@ export function PlaceTabs({ place }: { place: Place }) {
       </TabsContent>
 
       <TabsContent value="captures" className="mt-4">
+        <NewCaptureForm placeId={place.id} />
         <div className="space-y-2">
           {capturesData?.captures?.map((c) => (
             <div key={c.id} className="flex items-center justify-between p-3 border rounded-lg bg-white">
